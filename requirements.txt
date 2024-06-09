@@ -1,6 +1,6 @@
 slack_bolt
-langchain
-langchain_openai
-langchain_community
+langchain==0.2.3
+langchain_openai==0.1.8
+langchain_community==0.2.4
 python-dotenv
 beautifulsoup4
