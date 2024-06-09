@@ -1,0 +1,30 @@
+# 올림픽 공원에 레슨이 가능한지 10분마다 확인하는 Workflow
+name: Check possible in Olympic lesson
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # 매 10분마다 실행
+
+jobs:
+  run-main:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2  # 저장소를 체크아웃
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'  # 원하는 파이썬 버전으로 변경
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # requirements.txt의 패키지 설치
+
+    - name: Run main.py
+      run: python main.py  # main.py 실행
+      env:
+        OPENAI_API_KEY={{ secrets.OPENAI_API_KEY }}
+        SLACK_BOT_TOKEN=={{ secrets.SLACK_BOT_TOKEN }}
