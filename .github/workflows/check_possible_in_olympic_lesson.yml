@@ -3,7 +3,7 @@ name: Check possible in Olympic lesson
 
 on:
   schedule:
-    - cron: '*/10 0-13 * * *'  # 매 10분마다 실행 (09~22시까지만 실행)
+    - cron: '0 0-13 * * *'  # 매 10분마다 실행 (09~22시까지만 실행)
   workflow_dispatch:
 
 
