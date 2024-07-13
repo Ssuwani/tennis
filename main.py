@@ -39,6 +39,7 @@ if result.content == "False":
     )
 else:
     print("Available slots")
+    print(result.content)
     app.client.chat_postMessage(
         channel='C074SLJRGTS',
         text=f"<@U0743SMPX3L> 올림픽 공원 달려가\ncontent: {result.content}",
