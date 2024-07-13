@@ -22,7 +22,7 @@ Respond with only True if there are available slots, otherwise respond with Fals
 """
 
 llm = ChatOpenAI(
-    model="gpt-4o",
+    model="gpt-3.5-turbo",
     temperature=0,
     max_tokens=None,
     timeout=None,
