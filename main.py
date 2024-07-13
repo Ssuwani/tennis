@@ -18,7 +18,7 @@ Check if there are "available waiting slots" based on the following criteria:
 - Weekdays after 19:00
 - Anytime on weekends
 
-Respond with only True if there are available slots, otherwise respond with False.
+Respond with avaiable time if not respond with False.
 """
 
 llm = ChatOpenAI(
@@ -30,6 +30,7 @@ llm = ChatOpenAI(
 )
 chain = llm
 result = chain.invoke(prompt)
+
 if result.content == "False":
     print("No available slots")
     app.client.chat_postMessage(
@@ -40,5 +41,5 @@ else:
     print("Available slots")
     app.client.chat_postMessage(
         channel='C074SLJRGTS',
-        text=f"<@U0743SMPX3L> 올림픽 공원 달려가",
+        text=f"<@U0743SMPX3L> 올림픽 공원 달려가\ncontent: {result.content}",
     )
